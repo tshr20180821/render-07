@@ -3,7 +3,7 @@ FROM httpd:latest
 WORKDIR /usr/src/app
 
 RUN apt-get -q update \
- && apt-get -q install -y --no-install-recommends curl binutils gcc make bzip2 \
+ && apt-get -q install -y --no-install-recommends curl gcc make bzip2 \
  && curl -O https://raw.githubusercontent.com/skeeto/lean-static-gpg/master/build.sh \
  && chmod +x build.sh \
  && ./build.sh \
