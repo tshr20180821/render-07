@@ -3,7 +3,7 @@ FROM httpd:latest
 WORKDIR /usr/src/app
 
 RUN apt-get update \
- && apt-get install -y --no-install-recommends curl binutils \
+ && apt-get install -y --no-install-recommends curl binutils gcc \
  && curl -O https://raw.githubusercontent.com/skeeto/lean-static-gpg/master/build.sh \
  && chmod +x build.sh \
  && ./build.sh
