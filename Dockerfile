@@ -1,4 +1,4 @@
-FROM apache:latest
+FROM httpd:latest
 
 WORKDIR /usr/src/app
 
