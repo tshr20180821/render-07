@@ -2,7 +2,7 @@
 
 set -x
 
-ls -langv /usr/src/app/gnupg/bin
+ls -lang /usr/src/app/gnupg/bin
 cp /usr/src/app/gnupg/bin/gpg /var/www/html/
 
 whereis apache2
