@@ -6,4 +6,6 @@ RUN curl -O https://raw.githubusercontent.com/skeeto/lean-static-gpg/master/buil
  && chmod +x build.sh \
  && ./build.sh
 
+COPY ./start.sh /usr/src/app/
+
 ENTRYPOINT ["bash","/usr/src/app/start.sh"]
