@@ -14,4 +14,4 @@ ls -lang /usr/local/apache2/bin/
 . /usr/local/apache2/bin/envvars
 
 # exec /usr/sbin/apache2 -DFOREGROUND
-exec /usr/local/apache2 -DFOREGROUND
+exec /usr/local/apache2/bin/httpd -DFOREGROUND
