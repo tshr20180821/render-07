@@ -6,11 +6,11 @@ COPY ./gnupg.sh ./
 
 RUN apt-get -q update \
  && apt-get -q install -y --no-install-recommends curl gcc make bzip2 \
- && chmod +x build.sh \
- && ./build.sh \
+ && chmod +x gnupg.sh \
+ && ./gnupg.sh \
  && cp /usr/src/app/gnupg/bin/gpg /usr/local/apache2/htdocs/ \
- && ./build.sh -c \
- && ./build.sh -C
+ && ./gnupg.sh -c \
+ && ./gnupg.sh -C
 
 COPY ./start.sh ./
 
