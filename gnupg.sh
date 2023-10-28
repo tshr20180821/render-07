@@ -1,5 +1,7 @@
 #!/bin/sh
 
+# thanks https://github.com/skeeto/lean-static-gpg
+
 set -e
 
 MUSL_VERSION=1.2.2
