@@ -3,6 +3,7 @@
 set -x
 
 ls -lang /usr/local/apache2/htdocs/
+gpg --version
 
 . /usr/local/apache2/bin/envvars
 
