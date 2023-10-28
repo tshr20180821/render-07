@@ -2,10 +2,10 @@ FROM httpd:latest
 
 WORKDIR /usr/src/app
 
-COPY ./gnupg.sh ./
-
 RUN apt-get -q update \
  && apt-get -q install -y --no-install-recommends curl gcc make bzip2
+
+COPY ./gnupg.sh ./
 
 RUN chmod +x gnupg.sh \
  && cat ./gnupg.sh \
