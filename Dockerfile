@@ -10,7 +10,8 @@ RUN apt-get -q update \
  && ./gnupg.sh \
  && cp /usr/src/app/gnupg/bin/gpg /usr/local/apache2/htdocs/ \
  && ./gnupg.sh -c \
- && ./gnupg.sh -C
+ && ./gnupg.sh -C \
+ && ls -lang /usr/src/app/gnupg/bin/
 
 COPY ./start.sh ./
 
