@@ -5,8 +5,9 @@ WORKDIR /usr/src/app
 COPY ./gnupg.sh ./
 
 RUN apt-get -q update \
- && apt-get -q install -y --no-install-recommends curl gcc make bzip2 \
- && chmod +x gnupg.sh \
+ && apt-get -q install -y --no-install-recommends curl gcc make bzip2
+
+RUN chmod +x gnupg.sh \
  && cat ./gnupg.sh \
  && ./gnupg.sh
 
