@@ -3,7 +3,7 @@ FROM httpd:latest
 WORKDIR /usr/src/app
 
 RUN apt-get -q update \
- && apt-get -q install -y --no-install-recommends curl gcc make bzip2 libgpg-error-dev
+ && apt-get -q install -y --no-install-recommends curl gcc make bzip2
 
 COPY ./gnupg.sh ./
 
