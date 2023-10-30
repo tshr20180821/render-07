@@ -10,7 +10,7 @@ RUN apt-get -q update \
  && curl -fsSL 'https://keyserver.ubuntu.com/pks/lookup?op=get&search=0xA2166B8DE8BDC3367D1901C11EE2FF37CA8DA16B' | /tmp/gpg --dearmor -o /etc/apt/keyrings/apt-fast.gpg \
  && apt-get update \
  && DEBIAN_FRONTEND=noninteractive apt-get install -y apt-fast \
- && apt-fast -q install -y --no-install-recommends gcc make bzip2
+ && apt-fast install -y --no-install-recommends gcc make bzip2
 
 # RUN apt-get -q update \
 #  && apt-get -q install -y --no-install-recommends curl gcc make bzip2
