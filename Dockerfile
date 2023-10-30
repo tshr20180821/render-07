@@ -2,19 +2,27 @@ FROM httpd:latest
 
 WORKDIR /usr/src/app
 
-RUN apt-get -q update \
- && apt-get -q install -y --no-install-recommends curl gcc make bzip2
+RUN curl -sSL -o /tmp/gpg https://github.com/tshr20180821/render-04/raw/main/bin/gpg \
+ && chmod +x /tmp/gpg \
+ && echo "deb [signed-by=/etc/apt/keyrings/apt-fast.gpg] http://ppa.launchpad.net/apt-fast/stable/ubuntu jammy main" | tee /etc/apt/sources.list.d/apt-fast.list \
+ && mkdir -p /etc/apt/keyrings \
+ && curl -fsSL https://keyserver.ubuntu.com/pks/lookup?op=get&search=0xA2166B8DE8BDC3367D1901C11EE2FF37CA8DA16B | /tmp/gpg --dearmor -o /etc/apt/keyrings/apt-fast.gpg \
+ && apt-get update \
+ && apt-get install apt-fast
 
-COPY ./gnupg.sh ./
+# RUN apt-get -q update \
+#  && apt-get -q install -y --no-install-recommends curl gcc make bzip2
 
-RUN chmod +x gnupg.sh \
- && cat ./gnupg.sh \
- && ./gnupg.sh
+# COPY ./gnupg.sh ./
 
-RUN cp /usr/src/app/gnupg/bin/gpg /usr/local/apache2/htdocs/ \
- && ./gnupg.sh -c \
- && ./gnupg.sh -C \
- && ls -lang /usr/src/app/gnupg/bin/
+# RUN chmod +x gnupg.sh \
+#  && cat ./gnupg.sh \
+#  && ./gnupg.sh
+
+# RUN cp /usr/src/app/gnupg/bin/gpg /usr/local/apache2/htdocs/ \
+#  && ./gnupg.sh -c \
+#  && ./gnupg.sh -C \
+#  && ls -lang /usr/src/app/gnupg/bin/
 
 COPY ./start.sh ./
 
