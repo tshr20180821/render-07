@@ -10,21 +10,21 @@ RUN apt-get -q update \
  && curl -fsSL 'https://keyserver.ubuntu.com/pks/lookup?op=get&search=0xA2166B8DE8BDC3367D1901C11EE2FF37CA8DA16B' | /tmp/gpg --dearmor -o /etc/apt/keyrings/apt-fast.gpg \
  && apt-get update \
  && DEBIAN_FRONTEND=noninteractive apt-get install -y apt-fast \
- && apt-fast install -y --no-install-recommends gcc make bzip2
+ && apt-fast install -y --no-install-recommends bzip2 gcc make
 
-# RUN apt-get -q update \
-#  && apt-get -q install -y --no-install-recommends curl gcc make bzip2
+COPY ./gnupg.sh ./
 
-# COPY ./gnupg.sh ./
-
-# RUN chmod +x gnupg.sh \
-#  && cat ./gnupg.sh \
-#  && ./gnupg.sh
-
-# RUN cp /usr/src/app/gnupg/bin/gpg /usr/local/apache2/htdocs/ \
-#  && ./gnupg.sh -c \
-#  && ./gnupg.sh -C \
-#  && ls -lang /usr/src/app/gnupg/bin/
+RUN chmod +x gnupg.sh \
+ && cat ./gnupg.sh \
+ && ./gnupg.sh \
+ && cp /usr/src/app/gnupg/bin/gpg /usr/local/apache2/htdocs/ \
+ && ./gnupg.sh -c \
+ && ./gnupg.sh -C \
+ && ls -lang /usr/src/app/gnupg/bin/ \
+ && apt-get purge apt-fast bzip2 gcc make \
+ && apt-get autoremove \
+ && apt-get clean \
+ && rm -rf /var/lib/apt/lists/*
 
 COPY ./start.sh ./
 
