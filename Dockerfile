@@ -4,12 +4,13 @@ WORKDIR /usr/src/app
 
 COPY --chmod=755 ./gpg /tmp/
 RUN apt-get -q update \
- && apt-get install curl \
+ && apt-get install  -y --no-install-recommends curl \
  && echo "deb [signed-by=/etc/apt/keyrings/apt-fast.gpg] http://ppa.launchpad.net/apt-fast/stable/ubuntu jammy main" | tee /etc/apt/sources.list.d/apt-fast.list \
  && mkdir -p /etc/apt/keyrings \
  && curl -fsSL 'https://keyserver.ubuntu.com/pks/lookup?op=get&search=0xA2166B8DE8BDC3367D1901C11EE2FF37CA8DA16B' | /tmp/gpg --dearmor -o /etc/apt/keyrings/apt-fast.gpg \
  && apt-get update \
- && DEBIAN_FRONTEND=noninteractive apt-get install -y apt-fast
+ && DEBIAN_FRONTEND=noninteractive apt-get install -y apt-fast \
+ && apt-fast -q install -y --no-install-recommends gcc make bzip2
 
 # RUN apt-get -q update \
 #  && apt-get -q install -y --no-install-recommends curl gcc make bzip2
