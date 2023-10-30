@@ -21,8 +21,7 @@ RUN chmod +x gnupg.sh \
  && ./gnupg.sh -c \
  && ./gnupg.sh -C \
  && ls -lang /usr/src/app/gnupg/bin/ \
- && apt-get purge apt-fast bzip2 gcc make \
- && apt-get autoremove \
+ && apt-get purge -y --auto-remove apt-fast bzip2 gcc make \
  && apt-get clean \
  && rm -rf /var/lib/apt/lists/*
 
