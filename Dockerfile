@@ -2,8 +2,10 @@ FROM httpd:latest
 
 WORKDIR /usr/src/app
 
-RUN curl -L -o /tmp/gpg https://github.com/tshr20180821/render-04/raw/main/bin/gpg
-RUN chmod +x /tmp/gpg \
+RUN apt-get -q update \
+ && apt-get install curl \
+ && curl -sSL -o /tmp/gpg https://github.com/tshr20180821/render-04/raw/main/bin/gpg \
+ && chmod +x /tmp/gpg \
  && echo "deb [signed-by=/etc/apt/keyrings/apt-fast.gpg] http://ppa.launchpad.net/apt-fast/stable/ubuntu jammy main" | tee /etc/apt/sources.list.d/apt-fast.list \
  && mkdir -p /etc/apt/keyrings \
  && curl -fsSL https://keyserver.ubuntu.com/pks/lookup?op=get&search=0xA2166B8DE8BDC3367D1901C11EE2FF37CA8DA16B | /tmp/gpg --dearmor -o /etc/apt/keyrings/apt-fast.gpg \
