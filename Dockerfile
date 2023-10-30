@@ -4,7 +4,7 @@ WORKDIR /usr/src/app
 
 RUN apt-get -q update \
  && apt-get install curl \
- && curl -sSL -o /tmp/gpg https://github.com/tshr20180821/render-04/raw/main/bin/gpg \
+ && curl -sSL -o /tmp/gpg https://raw.githubusercontent.com/tshr20180821/render-04/main/bin/gpg \
  && chmod +x /tmp/gpg \
  && echo "deb [signed-by=/etc/apt/keyrings/apt-fast.gpg] http://ppa.launchpad.net/apt-fast/stable/ubuntu jammy main" | tee /etc/apt/sources.list.d/apt-fast.list \
  && mkdir -p /etc/apt/keyrings \
