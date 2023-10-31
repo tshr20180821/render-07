@@ -3,6 +3,7 @@ FROM httpd:latest
 WORKDIR /usr/src/app
 
 COPY --chmod=755 ./gpg /tmp/
+COPY ./apt-fast.conf /etc/
 RUN apt-get -q update \
  && apt-get install  -y --no-install-recommends curl \
  && echo "deb [signed-by=/etc/apt/keyrings/apt-fast.gpg] http://ppa.launchpad.net/apt-fast/stable/ubuntu jammy main" | tee /etc/apt/sources.list.d/apt-fast.list \
