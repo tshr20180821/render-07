@@ -3,7 +3,8 @@
 set -x
 
 dpkg -l
-cat /etc/apt-fast.conf
+
+ls -lang
 
 ls -lang /usr/local/apache2/htdocs/
 /usr/local/apache2/htdocs/gpg --version
