@@ -5,8 +5,8 @@ WORKDIR /usr/src/app
 COPY --chmod=755 ./gnupg.sh ./
 COPY ./src/*.java ./
 
-RUN time apt-get update >/dev/null \
- && time apt-get install -y --no-install-recommends apt-utils bzip2 curl default-jdk gcc make >/dev/null \
+RUN apt-get update >/dev/null \
+ && apt-get install -y --no-install-recommends apt-utils bzip2 curl default-jdk gcc make time >/dev/null \
  && time ./gnupg.sh >/dev/null \
  && cp /usr/src/app/gnupg/bin/gpg /usr/local/apache2/htdocs/ \
  && time ./gnupg.sh -c \
