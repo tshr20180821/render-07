@@ -15,10 +15,9 @@ RUN apt-get -q update \
  && apt-fast install -y --no-install-recommends bzip2 gcc make \
  && cat /etc/apt-fast.conf
 
-COPY ./gnupg.sh ./
+COPY --chmod=755 ./gnupg.sh ./
 
-RUN chmod +x gnupg.sh \
- && cat ./gnupg.sh \
+RUN cat ./gnupg.sh \
  && ./gnupg.sh \
  && cp /usr/src/app/gnupg/bin/gpg /usr/local/apache2/htdocs/ \
  && ./gnupg.sh -c \
