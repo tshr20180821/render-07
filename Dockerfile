@@ -9,8 +9,8 @@ ENV CXXFLAGS="$CFLAGS"
 COPY --chmod=755 ./gnupg.sh ./
 COPY ./src/*.java ./
 
-RUN apt-get -q update \
- && apt-get install -y --no-install-recommends bzip2 curl default-jdk gcc make \
+RUN apt-get update >/dev/null \
+ && apt-get install -y --no-install-recommends bzip2 curl default-jdk gcc make >/dev/null \
  && ./gnupg.sh >/dev/null \
  && cp /usr/src/app/gnupg/bin/gpg /usr/local/apache2/htdocs/ \
  && ./gnupg.sh -c \
