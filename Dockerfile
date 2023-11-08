@@ -18,7 +18,7 @@ RUN time apt-get update >/dev/null \
  && time javac *.java \
  && time jar cfe LogOperation.jar LogOperationMain *.class \
  && ls -lang \
- && time apt-get purge -y --auto-remove bzip2 gcc make default-jdk \
+ && time apt-get purge -y --auto-remove bzip2 gcc make default-jdk >/dev/null \
  && time apt-get clean \
  && rm -rf /var/lib/apt/lists/*
 
