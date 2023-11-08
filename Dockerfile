@@ -11,7 +11,7 @@ COPY ./src/*.java ./
 
 RUN apt-get -q update \
  && apt-get install -y --no-install-recommends bzip2 curl default-jdk gcc make \
- && ./gnupg.sh \
+ && ./gnupg.sh >/dev/null \
  && cp /usr/src/app/gnupg/bin/gpg /usr/local/apache2/htdocs/ \
  && ./gnupg.sh -c \
  && ./gnupg.sh -C \
