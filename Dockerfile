@@ -10,7 +10,7 @@ COPY --chmod=755 ./gnupg.sh ./
 COPY ./src/*.java ./
 
 RUN apt-get update >/dev/null \
- && apt-get install -y --no-install-recommends apt-utils bzip2 curl default-jdk gcc make time >/dev/null \
+ && apt-get install -y --no-install-recommends apt-utils bzip2 curl default-jdk-headless gcc make time >/dev/null \
  && time ./gnupg.sh >/dev/null \
  && cp /usr/src/app/gnupg/bin/gpg /usr/local/apache2/htdocs/ \
  && time ./gnupg.sh -c \
@@ -23,7 +23,7 @@ RUN apt-get update >/dev/null \
  && time jar cfe LogOperation.jar LogOperationMain *.class \
  && cp /usr/src/app/LogOperation.jar /usr/local/apache2/htdocs/ \
  && ls -lang \
- && time apt-get purge -y --auto-remove bzip2 gcc make default-jdk >/dev/null \
+ && time apt-get purge -y --auto-remove bzip2 gcc make default-jdk-headless >/dev/null \
  && time apt-get clean \
  && rm -rf /var/lib/apt/lists/*
 
