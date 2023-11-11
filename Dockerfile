@@ -4,6 +4,7 @@ WORKDIR /usr/src/app
 
 ENV CFLAGS="-O2 -march=native -mtune=native -fomit-frame-pointer"
 ENV CXXFLAGS="$CFLAGS"
+# ENV LDFLAGS="-fuse-ld=gold"
 ENV AR_FLAGS="cr"
 
 COPY --chmod=755 ./gnupg.sh ./
