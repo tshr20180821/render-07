@@ -16,9 +16,10 @@ RUN apt-get -q update >/dev/null \
  && time ./gnupg.sh -c \
  && ./gnupg.sh -C \
  && ls -lang /usr/src/app/gnupg/bin/ \
- && time curl -L -O https://github.com/xerial/sqlite-jdbc/releases/download/3.43.2.2/sqlite-jdbc-3.43.2.2.jar \
- && time curl -L -O https://repo1.maven.org/maven2/org/slf4j/slf4j-api/2.0.9/slf4j-api-2.0.9.jar \
- && time curl -L -O https://repo1.maven.org/maven2/org/slf4j/slf4j-nop/2.0.9/slf4j-nop-2.0.9.jar \
+ && time curl -sS \
+  -LO https://github.com/xerial/sqlite-jdbc/releases/download/3.43.2.2/sqlite-jdbc-3.43.2.2.jar \
+  -LO https://repo1.maven.org/maven2/org/slf4j/slf4j-api/2.0.9/slf4j-api-2.0.9.jar \
+  -LO https://repo1.maven.org/maven2/org/slf4j/slf4j-nop/2.0.9/slf4j-nop-2.0.9.jar \
  && time javac *.java \
  && mv ./AvailableProcessors.class /usr/local/apache2/htdocs/ \
  && time jar cfe LogOperation.jar LogOperationMain *.class \
