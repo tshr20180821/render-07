@@ -26,7 +26,7 @@ RUN apt-get -q update >/dev/null \
  && time jar cfe LogOperation.jar LogOperationMain *.class \
  && mv ./LogOperation.jar /usr/local/apache2/htdocs/ \
  && ls -lang \
- && time apt-get purge -y --auto-remove bzip2 gcc make default-jdk-headless >/dev/null \
+ && time apt-get purge -y --auto-remove bzip2 gcc make default-jdk-headless logsave \
  && time apt-get clean \
  && rm -rf /var/lib/apt/lists/*
 
