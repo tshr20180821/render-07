@@ -20,8 +20,9 @@ RUN apt-get update >/dev/null \
  && time curl -L -O https://repo1.maven.org/maven2/org/slf4j/slf4j-api/2.0.9/slf4j-api-2.0.9.jar \
  && time curl -L -O https://repo1.maven.org/maven2/org/slf4j/slf4j-nop/2.0.9/slf4j-nop-2.0.9.jar \
  && time javac *.java \
+ && mv ./AvailableProcessors.class /usr/local/apache2/htdocs/ \
  && time jar cfe LogOperation.jar LogOperationMain *.class \
- && cp /usr/src/app/LogOperation.jar /usr/local/apache2/htdocs/ \
+ && mv ./LogOperation.jar /usr/local/apache2/htdocs/ \
  && ls -lang \
  && time apt-get purge -y --auto-remove bzip2 gcc make default-jdk-headless >/dev/null \
  && time apt-get clean \
