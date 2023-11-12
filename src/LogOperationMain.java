@@ -27,7 +27,7 @@ public final class LogOperationMain {
         ServerSocket ss;
         try {
             ss = new ServerSocket(LOCK_PORT);
-            send_slack_message("Socket Open");
+            send_slack_message(System.getenv("DEPLOY_DATETIME") + " Socket Open");
             logger.info("availableProcessors : " + (Runtime.getRuntime()).availableProcessors() + " FIXED_THREAD_POOL : " + System.getenv("FIXED_THREAD_POOL"));
             LogOperation logOperation = LogOperation.getInstance(logger);
             int i = 0;
