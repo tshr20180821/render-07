@@ -9,7 +9,10 @@ ls -lang
 ls -lang /usr/local/apache2/htdocs/
 /usr/local/apache2/htdocs/gpg --version
 
-echo ServerName ${RENDER_EXTERNAL_HOSTNAME} >/etc/apache2/sites-enabled/server_name.conf
+find / -name port.conf -print
+find / -name httpd.conf -print
+
+# echo ServerName ${RENDER_EXTERNAL_HOSTNAME} >/etc/apache2/sites-enabled/server_name.conf
 
 . /usr/local/apache2/bin/envvars
 
