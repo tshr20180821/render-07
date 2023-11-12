@@ -11,8 +11,8 @@ COPY --chmod=755 ./gnupg.sh ./
 COPY ./src/*.java ./
 
 RUN apt-get -q update >/dev/null \
+ && apt-get install -y --no-install-recommends apt-utils \
  && DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends \
-  apt-utils \
   bzip2 \
   curl \
   default-jdk-headless \
