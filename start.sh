@@ -11,7 +11,7 @@ ls -lang /usr/local/apache2/htdocs/
 
 ls -lang /usr/local/apache2/conf/
 
-# echo ServerName ${RENDER_EXTERNAL_HOSTNAME} >/etc/apache2/sites-enabled/server_name.conf
+echo ServerName ${RENDER_EXTERNAL_HOSTNAME} >/usr/local/apache2/conf/server_name.conf
 
 . /usr/local/apache2/bin/envvars
 
