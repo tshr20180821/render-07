@@ -24,6 +24,13 @@ public final class LogOperationMain {
         String pid_host = ManagementFactory.getRuntimeMXBean().getName();
         String start_datetime = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
         logger.info("START " + pid_host + " " + System.getProperty("user.name"));
+        logger.finest("Log Level Test : finest");
+        logger.finer("Log Level Test : finer");
+        logger.fine("Log Level Test : fine");
+        logger.config("Log Level Test : config");
+        logger.info("Log Level Test : info");
+        logger.warning("Log Level Test : warning");
+        logger.severe("Log Level Test : severe");
         ServerSocket ss;
         try {
             ss = new ServerSocket(LOCK_PORT);
