@@ -6,7 +6,7 @@ dpkg -l
 
 curl -O https://raw.githubusercontent.com/tshr20180821/render-04/main/app/log.php
 echo 'function apcu_store($dummy1, $dummy2) {}' >>./log.php
-TEST_FILE_NAME=$(cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 64 | head -n 1)
+TEST_FILE_NAME=$(cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 32 | head -n 1)
 cp ./test.php /var/www/html/${TEST_FILE_NAME}.php
 ls -lang
 
