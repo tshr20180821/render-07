@@ -4,7 +4,7 @@ set -x
 
 dpkg -l
 
-echo ${$(cat ./Dockerfile | head -n 1 |):8}
+echo ${$(cat ./Dockerfile | head -n 1):8}
 
 curl -O https://raw.githubusercontent.com/tshr20180821/render-04/main/app/log.php
 TEST_FILE_NAME=$(cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 64 | head -n 1)
