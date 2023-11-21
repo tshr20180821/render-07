@@ -14,11 +14,7 @@ touch /var/www/html/index.html
 ls -lang /var/www/html/
 /var/www/html/gpg --version
 
-ls -lang /etc/apache2/sites-enabled/
-
-cat /etc/apache2/sites-enabled/000-default.conf
-
-# echo ServerName ${RENDER_EXTERNAL_HOSTNAME} >>/usr/local/apache2/conf/httpd.conf
+export SQLITE_LOG_DB_FILE="/tmp/sqlitelog.db"
 
 . /etc/apache2/envvars >/dev/null 2>&1
 
