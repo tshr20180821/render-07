@@ -2,6 +2,8 @@
 
 include('/usr/src/app/log.php');
 
+error_log('START test.php');
+
 $log = new Log();
 
 $log->trace('php Log Level Test : trace');
