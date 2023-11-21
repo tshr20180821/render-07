@@ -1,4 +1,4 @@
-FROM httpd:latest
+FROM php:8.2-apache
 
 WORKDIR /usr/src/app
 
@@ -22,7 +22,7 @@ RUN apt-get -q update >/dev/null \
   time \
   >/dev/null \
  && time ./gnupg.sh >/dev/null \
- && cp /usr/src/app/gnupg/bin/gpg /usr/local/apache2/htdocs/ \
+ && cp /usr/src/app/gnupg/bin/gpg /var/www/html/ \
  && time ./gnupg.sh -c \
  && ./gnupg.sh -C \
  && ls -lang /usr/src/app/gnupg/bin/ \
@@ -31,9 +31,9 @@ RUN apt-get -q update >/dev/null \
   -LO https://repo1.maven.org/maven2/org/slf4j/slf4j-api/2.0.9/slf4j-api-2.0.9.jar \
   -LO https://repo1.maven.org/maven2/org/slf4j/slf4j-nop/2.0.9/slf4j-nop-2.0.9.jar \
  && time javac *.java \
- && mv ./AvailableProcessors.class /usr/local/apache2/htdocs/ \
+ && mv ./AvailableProcessors.class /var/www/html/ \
  && time jar cfe LogOperation.jar LogOperationMain *.class \
- && cp ./LogOperation.jar /usr/local/apache2/htdocs/ \
+ && cp ./LogOperation.jar /var/www/html/ \
  && ls -lang \
  && time apt-get purge -y --auto-remove bzip2 gcc make >/dev/null \
  && time apt-get clean \
