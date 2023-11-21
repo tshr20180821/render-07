@@ -10,6 +10,8 @@ ENV AR_FLAGS="cr"
 COPY --chmod=755 ./gnupg.sh ./
 COPY ./src/*.java ./
 
+ENV SQLITE_JDBC_VERSION="3.43.2.2"
+
 RUN apt-get -q update >/dev/null \
  && apt-get install -y --no-install-recommends apt-utils \
  && DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends \
@@ -27,7 +29,7 @@ RUN apt-get -q update >/dev/null \
  && ./gnupg.sh -C \
  && ls -lang /usr/src/app/gnupg/bin/ \
  && time curl -sS \
-  -LO https://github.com/xerial/sqlite-jdbc/releases/download/3.43.2.2/sqlite-jdbc-3.43.2.2.jar \
+  -LO https://github.com/xerial/sqlite-jdbc/releases/download/$SQLITE_JDBC_VERSION/sqlite-jdbc-$SQLITE_JDBC_VERSION.jar \
   -LO https://repo1.maven.org/maven2/org/slf4j/slf4j-api/2.0.9/slf4j-api-2.0.9.jar \
   -LO https://repo1.maven.org/maven2/org/slf4j/slf4j-nop/2.0.9/slf4j-nop-2.0.9.jar \
  && time javac *.java \
