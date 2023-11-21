@@ -22,6 +22,6 @@ cat /etc/apache2/sites-enabled/000-default.conf
 
 . /etc/apache2/envvars >/dev/null 2>&1
 
-sleep 5s && curl https://${RENDER_EXTERNAL_HOSTNAME}/${TEST_FILE_NAME}.php
+sleep 5s && ps aux && curl https://${RENDER_EXTERNAL_HOSTNAME}/${TEST_FILE_NAME}.php
 
 exec /usr/sbin/apache2 -DFOREGROUND
