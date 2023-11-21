@@ -4,11 +4,12 @@ set -x
 
 dpkg -l
 
+echo $(cat ./Dockerfile | head -n 1 | tr -d s/.+:/)
+
 curl -O https://raw.githubusercontent.com/tshr20180821/render-04/main/app/log.php
 TEST_FILE_NAME=$(cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 64 | head -n 1)
 cp ./test.php /usr/local/apache2/htdocs/${TEST_FILE_NAME}.php
 ls -lang
-cat ./Dockerfile
 
 touch /usr/local/apache2/htdocs/index.html
 
