@@ -5,6 +5,7 @@ set -x
 dpkg -l
 
 export DEPLOY_DATETIME=$(date +'%Y%m%d%H%M%S')
+export FIXED_THREAD_POOL=1
 
 curl -O https://raw.githubusercontent.com/tshr20180821/render-04/main/app/log.php
 echo 'function apcu_store($dummy1, $dummy2) {}' >>./log.php
