@@ -16,6 +16,8 @@ ls -lang /var/www/html/
 
 ls -lang /etc/apache2/sites-enabled/
 
+cat /etc/apache2/sites-enabled/000-default.conf
+
 # echo ServerName ${RENDER_EXTERNAL_HOSTNAME} >>/usr/local/apache2/conf/httpd.conf
 
 . /etc/apache2/envvars >/dev/null 2>&1
