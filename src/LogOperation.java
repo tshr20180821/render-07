@@ -31,7 +31,7 @@ public final class LogOperation {
             var props = new Properties();
             props.put("journal_mode", "WAL");
             props.put("busy_timeout", 10000);
-            _conn = DriverManager.getConnection("jdbc:sqlite:/tmp/sqlitelog.db", props);
+            _conn = DriverManager.getConnection("jdbc:sqlite:" + System.getenv("SQLITE_LOG_DB_FILE"), props);
             _ps = _conn.prepareStatement(
                     "SELECT seq, process_datetime, pid, level, file, line, function, message, tags FROM t_log WHERE status = 0 ORDER BY seq",
                     ResultSet.TYPE_FORWARD_ONLY, ResultSet.CONCUR_READ_ONLY);

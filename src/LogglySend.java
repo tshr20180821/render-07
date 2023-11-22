@@ -105,7 +105,7 @@ public final class LogglySend implements Callable<Integer> {
             var props = new Properties();
             props.put("journal_mode", "WAL");
             props.put("busy_timeout", 10000);
-            conn = DriverManager.getConnection("jdbc:sqlite:/tmp/sqlitelog.db", props);
+            conn = DriverManager.getConnection("jdbc:sqlite:" + System.getenv("SQLITE_LOG_DB_FILE"), props);
             ps = conn.prepareStatement("UPDATE t_log SET status = 1 WHERE seq = ?");
             ps.setInt(1, this._seq);
             ps.executeUpdate();
