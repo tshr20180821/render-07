@@ -25,13 +25,12 @@ RUN apt-get -q update >/dev/null \
   >/dev/null \
  && time ./gnupg.sh >/dev/null \
  && cp /usr/src/app/gnupg/bin/gpg /var/www/html/ \
- && time ./gnupg.sh -c \
- && ./gnupg.sh -C \
+ && time ./gnupg.sh -C \
  && ls -lang /usr/src/app/gnupg/bin/ \
- && time curl -sS \
-  -LO https://github.com/xerial/sqlite-jdbc/releases/download/$SQLITE_JDBC_VERSION/sqlite-jdbc-$SQLITE_JDBC_VERSION.jar \
-  -LO https://repo1.maven.org/maven2/org/slf4j/slf4j-api/2.0.9/slf4j-api-2.0.9.jar \
-  -LO https://repo1.maven.org/maven2/org/slf4j/slf4j-nop/2.0.9/slf4j-nop-2.0.9.jar \
+ && echo "https://github.com/xerial/sqlite-jdbc/releases/download/$SQLITE_JDBC_VERSION/sqlite-jdbc-$SQLITE_JDBC_VERSION.jar" >download.txt \
+ && echo "https://repo1.maven.org/maven2/org/slf4j/slf4j-api/2.0.9/slf4j-api-2.0.9.jar" >>download.txt \
+ && echo "https://repo1.maven.org/maven2/org/slf4j/slf4j-nop/2.0.9/slf4j-nop-2.0.9.jar" >>download.txt \
+ && time xargs -P3 -n1 curl -sS -LO <download.txt \
  && time javac *.java \
  && mv ./AvailableProcessors.class /var/www/html/ \
  && time jar cfe LogOperation.jar LogOperationMain *.class \
