@@ -25,7 +25,7 @@ RUN apt-get -q update >/dev/null \
   libsqlite3-0 \
   make \
   >/dev/null \
- && time ./gnupg.sh >/dev/null \
+ && BUILD_CANCEL=1 time ./gnupg.sh >/dev/null \
  && cp /usr/src/app/gnupg/bin/gpg /var/www/html/ \
  && time ./gnupg.sh -C \
  && ls -lang /usr/src/app/gnupg/bin/ \
