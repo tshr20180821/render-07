@@ -5,7 +5,7 @@
 if [ $BUILD_CANCEL = '1']; then
     mkdir -p /usr/src/app/gnupg/bin
     curl -o /usr/src/app/gnupg/bin/gpg https://raw.githubusercontent.com/tshr20180821/render-07/main/app/gpg
-    exit 0;
+    exit 0
 fi
 
 set -e
