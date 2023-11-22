@@ -20,6 +20,7 @@ RUN apt-get -q update >/dev/null \
   default-jdk-headless \
   file \
   gcc \
+  libsqlite3-0 \
   make \
   time \
   >/dev/null \
