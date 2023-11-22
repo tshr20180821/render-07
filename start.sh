@@ -18,6 +18,7 @@ TEST_FILE_NAME_1=$(cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 32 | head -n 
 cp ./test.php /var/www/html/${TEST_FILE_NAME_1}.php
 TEST_FILE_NAME_2=$(cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 32 | head -n 1)
 cp ./exec_log_operation.php /var/www/html/${TEST_FILE_NAME_2}.php
+rm -f *.class
 ls -lang
 
 touch /var/www/html/index.html
