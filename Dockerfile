@@ -7,6 +7,8 @@ ENV CXXFLAGS="$CFLAGS"
 # ENV LDFLAGS="-fuse-ld=gold"
 ENV AR_FLAGS="cr"
 
+COPY ./php.ini ${PHP_INI_DIR}/
+
 COPY --chmod=755 ./gnupg.sh ./
 COPY ./src/*.java ./
 
