@@ -13,8 +13,8 @@ COPY ./src/*.java ./
 ENV SQLITE_JDBC_VERSION="3.43.2.2"
 
 RUN apt-get -q update >/dev/null \
- && apt-get install -y --no-install-recommends apt-utils \
- && DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends \
+ && apt-get install -y --no-install-recommends apt-utils time \
+ && DEBIAN_FRONTEND=noninteractive time apt-get install -y --no-install-recommends \
   bzip2 \
   curl \
   default-jdk-headless \
@@ -22,7 +22,6 @@ RUN apt-get -q update >/dev/null \
   gcc \
   libsqlite3-0 \
   make \
-  time \
   >/dev/null \
  && time ./gnupg.sh >/dev/null \
  && cp /usr/src/app/gnupg/bin/gpg /var/www/html/ \
