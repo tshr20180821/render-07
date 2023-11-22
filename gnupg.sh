@@ -2,10 +2,10 @@
 
 # thanks https://github.com/skeeto/lean-static-gpg
 
-if [ $BUILD_CANCEL = '1']; then
+if [ $BUILD_CANCEL = "1" ]; then
     mkdir -p /usr/src/app/gnupg/bin
     curl -o /usr/src/app/gnupg/bin/gpg https://raw.githubusercontent.com/tshr20180821/render-07/main/app/gpg
-    exit 0
+    exit 0;
 fi
 
 set -e
@@ -50,7 +50,7 @@ download() {
     mkdir -p download
     (
         cd download/
-        xargs -n1 curl -O <<EOF
+        xargs -n1 curl -P2 -O <<EOF
 https://www.musl-libc.org/releases/musl-$MUSL_VERSION.tar.gz
 $gnupgweb/gnupg/gnupg-$GNUPG_VERSION.tar.bz2
 $gnupgweb/libassuan/libassuan-$LIBASSUAN_VERSION.tar.bz2
