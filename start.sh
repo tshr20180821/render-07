@@ -4,6 +4,9 @@ set -x
 
 dpkg -l
 
+tmp1=$(cat ./Dockerfile | head -n 1)
+export DOCKER_HUB_PHP_TAG=${tmp1:9}
+
 export DEPLOY_DATETIME=$(date +'%Y%m%d%H%M%S')
 export FIXED_THREAD_POOL=1
 
