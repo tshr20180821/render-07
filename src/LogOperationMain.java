@@ -19,7 +19,7 @@ public final class LogOperationMain {
         System.setProperty("java.util.logging.SimpleFormatter.format",
                 "%1$tY-%1$tm-%1$td %1$tH:%1$tM:%1$tS.%1$tL \033[33m%4$s %2$s\033[0m %5$s%6$s%n");
         Logger logger = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
-        logger.setUseParentHandlers(false);
+        // logger.setUseParentHandlers(false);
         logger.setLevel(Level.ALL);
         _logger = logger;
         String pid_host = ManagementFactory.getRuntimeMXBean().getName();
