@@ -20,6 +20,8 @@ $log->fatal('php Log Level Test : fatal');
 
             $pdo = new PDO('sqlite:' . $_ENV['SQLITE_LOG_DB_FILE'], NULL, NULL, array(PDO::ATTR_PERSISTENT => TRUE));
 
+error_log('test.php CHECK POINT 010');
+
             $sql_create = <<< __HEREDOC__
 CREATE TABLE t_log (
     seq INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
@@ -36,6 +38,7 @@ CREATE TABLE t_log (
 )
 __HEREDOC__;
 
+error_log('test.php CHECK POINT 020');
             $rc = $pdo->exec($sql_create);
 
 error_log('test.php FINISH');
