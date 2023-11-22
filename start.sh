@@ -26,6 +26,8 @@ export SQLITE_LOG_DB_FILE="/tmp/sqlitelog.db"
 
 . /etc/apache2/envvars >/dev/null 2>&1
 
-sleep 5s && ps aux && curl -v -m 30 http://127.0.0.1/${TEST_FILE_NAME_1}.php && ps aux &
+sleep 5s && ps aux && curl -v -m 30 http://127.0.0.1/${TEST_FILE_NAME_1}.php &
+
+sleep 10s && ps aux && sleep 10s && ps aux && sleep 10s && ps aux && sleep 10s && ps aux &
 
 exec /usr/sbin/apache2 -DFOREGROUND
