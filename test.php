@@ -41,4 +41,8 @@ __HEREDOC__;
 error_log('test.php CHECK POINT 020');
             $rc = $pdo->exec($sql_create);
 
+error_log('test.php CHECK POINT 030');
+            exec('cd /usr/src/app && java -classpath .:sqlite-jdbc-' . $_ENV['SQLITE_JDBC_VERSION']
+                 . '.jar:slf4j-api-2.0.9.jar:slf4j-nop-2.0.9.jar:LogOperation.jar -Duser.timezone=Asia/Tokyo -Dfile.encoding=UTF-8 LogOperationMain &');
+
 error_log('test.php FINISH');
