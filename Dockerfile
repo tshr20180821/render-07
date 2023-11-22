@@ -40,7 +40,8 @@ RUN apt-get -q update >/dev/null \
  && ls -lang \
  && time apt-get purge -y --auto-remove bzip2 gcc make >/dev/null \
  && time apt-get clean \
- && rm -rf /var/lib/apt/lists/*
+ && rm -rf /var/lib/apt/lists/* \
+ && ln -sf /usr/share/zoneinfo/Asia/Tokyo /etc/localtime
 
 COPY ./test.php ./
 COPY ./Dockerfile ./
