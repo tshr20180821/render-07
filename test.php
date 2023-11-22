@@ -41,7 +41,19 @@ __HEREDOC__;
 error_log('test.php CHECK POINT 020');
             $rc = $pdo->exec($sql_create);
 
+
+$log = new Log();
+
 error_log('test.php CHECK POINT 030');
+
+$log->trace('php Log Level Test : trace');
+$log->debug('php Log Level Test : debug');
+$log->info('php Log Level Test : info');
+$log->warn('php Log Level Test : warn');
+$log->error('php Log Level Test : error');
+$log->fatal('php Log Level Test : fatal');
+
+error_log('test.php CHECK POINT 040');
             exec('cd /usr/src/app && java -classpath .:sqlite-jdbc-' . $_ENV['SQLITE_JDBC_VERSION']
                  . '.jar:slf4j-api-2.0.9.jar:slf4j-nop-2.0.9.jar:LogOperation.jar -Duser.timezone=Asia/Tokyo -Dfile.encoding=UTF-8 LogOperationMain &');
 
