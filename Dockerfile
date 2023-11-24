@@ -18,12 +18,9 @@ RUN apt-get -q update >/dev/null \
  && apt-get install -y --no-install-recommends apt-utils time \
  && DEBIAN_FRONTEND=noninteractive time apt-get install -y --no-install-recommends \
   bzip2 \
-  curl \
   default-jdk-headless \
   file \
-  gcc \
   libsqlite3-0 \
-  make \
   >/dev/null \
  && BUILD_CANCEL=1 time ./gnupg.sh >/dev/null \
  && cp /usr/src/app/gnupg/bin/gpg /var/www/html/ \
