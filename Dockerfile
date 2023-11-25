@@ -34,8 +34,6 @@ RUN apt-get -q update >/dev/null \
  && mv ./AvailableProcessors.class /var/www/html/ \
  && time jar cfe LogOperation.jar LogOperationMain *.class \
  && cp ./LogOperation.jar /var/www/html/ \
- && ls -lang \
- && time apt-get purge -y --auto-remove bzip2 gcc make >/dev/null \
  && time apt-get clean \
  && rm -rf /var/lib/apt/lists/* \
  && ln -sf /usr/share/zoneinfo/Asia/Tokyo /etc/localtime
