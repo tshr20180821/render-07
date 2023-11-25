@@ -45,7 +45,6 @@ COPY --chmod=755 ./build_memcached.sh ./
 COPY ./Dockerfile ./
 COPY ./start.sh ./
 
-COPY --from=memcached:latest /usr/bin/memcached ./
-RUN ls -lang
+FROM memcached:latest
 
 ENTRYPOINT ["bash","/usr/src/app/start.sh"]
