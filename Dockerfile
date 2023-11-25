@@ -41,7 +41,7 @@ RUN apt-get -q update >/dev/null \
  && ln -sf /usr/share/zoneinfo/Asia/Tokyo /etc/localtime
 
 COPY ./test.php ./
-COPY --chmod=755 ./build_memcached.sh
+COPY --chmod=755 ./build_memcached.sh ./
 COPY ./Dockerfile ./
 COPY ./start.sh ./
 
