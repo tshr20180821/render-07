@@ -32,6 +32,6 @@ export SQLITE_LOG_DB_FILE="/tmp/sqlitelog.db"
 
 sleep 5s && ps aux && curl -v -m 30 http://127.0.0.1/${TEST_FILE_NAME_1}.php &
 
-for i in {1..20} ; do sleep 840s && ps aux && curl -sSA "keep on" https://${RENDER_EXTERNAL_HOSTNAME}/; done &
+for i in {1..20} ; do sleep 840s && ps aux && curl -sSA "keep online" https://${RENDER_EXTERNAL_HOSTNAME}/; done &
 
 exec /usr/sbin/apache2 -DFOREGROUND
