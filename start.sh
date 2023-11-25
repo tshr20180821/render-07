@@ -2,7 +2,9 @@
 
 set -x
 
-find / -name memcached -print
+ls -lang
+
+ldd memcached
 
 dpkg -l
 
