@@ -2,9 +2,13 @@
 
 set -x
 
+ls -lang
+
 ldd memcached
 
-memcached --help
+chmod +x memcached
+
+./memcached --help
 
 dpkg -l
 
