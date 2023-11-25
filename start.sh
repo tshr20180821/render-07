@@ -32,7 +32,7 @@ export SQLITE_LOG_DB_FILE="/tmp/sqlitelog.db"
 
 sleep 5s && ps aux && curl -v -m 30 http://127.0.0.1/${TEST_FILE_NAME_1}.php &
 
-for i in {1..20} ; do sleep 840s && ps aux && curl -sSA "keep online" https://${RENDER_EXTERNAL_HOSTNAME}/; done &
+for i in {1..10} ; do sleep 840s && ps aux && curl -sSA "keep online" https://${RENDER_EXTERNAL_HOSTNAME}/; done &
 
 cp ./build_memcached.sh /tmp/
 time /tmp/build_memcached.sh 2>&1 | tee -a /var/www/html/build_log.txt &
