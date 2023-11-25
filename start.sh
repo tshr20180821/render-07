@@ -2,6 +2,8 @@
 
 set -x
 
+find / -name memcached -print
+
 dpkg -l
 
 tmp1=$(cat ./Dockerfile | head -n 1)
