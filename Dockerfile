@@ -21,6 +21,8 @@ RUN apt-get -q update >/dev/null \
   default-jdk-headless \
   file \
   libsqlite3-0 \
+  libevent-dev \ # memcache
+  libsasl2-dev \ # memcache
   >/dev/null \
  && BUILD_CANCEL=1 time ./gnupg.sh >/dev/null \
  && cp /usr/src/app/gnupg/bin/gpg /var/www/html/ \
