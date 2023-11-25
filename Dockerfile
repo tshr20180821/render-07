@@ -46,5 +46,7 @@ COPY ./Dockerfile ./
 COPY ./start.sh ./
 
 FROM memcached:latest
+WORKDIR /usr/src/app
+COPY ./start.sh ./
 
 ENTRYPOINT ["bash","/usr/src/app/start.sh"]
