@@ -10,6 +10,7 @@ import java.sql.SQLException;
 import java.util.concurrent.Callable;
 import java.util.logging.Logger;
 import java.util.Properties;
+import javax.net.ssl.SSLHandshakeException;
 
 public final class LogglySend implements Callable<Integer> {
 
@@ -86,6 +87,10 @@ public final class LogglySend implements Callable<Integer> {
                 _logger.warning(response.statusCode() + " " + response.body() + "\n" + this._seq + " " + sb.toString());
                 LogOperationMain.send_slack_message(response.statusCode() + " " + response.body() + "\n" + this._seq + " " + sb.toString());
             }
+        } catch (SSLHandshakeException e) {
+            this._logger.warning("SSLHandshakeException");
+            LogOperationMain.send_slack_message(LogOperationMain.get_stack_trace(e));
+            e.printStackTrace();
         } catch (IOException e) {
             this._logger.warning("IOException");
             LogOperationMain.send_slack_message(LogOperationMain.get_stack_trace(e));
