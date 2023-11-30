@@ -42,6 +42,7 @@ RUN apt-get -q update >/dev/null \
 
 COPY ./test.php ./
 COPY --chmod=755 ./build_memcached.sh ./
+COPY ./proto_bin.c ./
 COPY ./Dockerfile ./
 COPY ./start.sh ./
 
