@@ -7,7 +7,7 @@ export CXXFLAGS="$CFLAGS"
 export LDFLAGS="-fuse-ld=gold"
 
 pushd /tmp
-curl -O https://memcached.org/files/memcached-1.6.22.tar.gz
+curl -v -O https://memcached.org/files/memcached-1.6.22.tar.gz
 tar xf memcached-1.6.22.tar.gz
 
 pushd memcached-1.6.22
