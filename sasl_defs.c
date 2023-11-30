@@ -59,6 +59,7 @@ static int sasl_server_userdb_checkpass(sasl_conn_t *conn,
                 user, passlen);
         return SASL_NOAUTHZ;
     }
+    fprintf(stderr, "memcached_sasl_pwdb : %s\n", memcached_sasl_pwdb);
 
     FILE *pwfile = fopen(memcached_sasl_pwdb, "r");
     if (pwfile == NULL) {
@@ -69,10 +70,13 @@ static int sasl_server_userdb_checkpass(sasl_conn_t *conn,
         return SASL_NOAUTHZ;
     }
 
+    fprintf(stderr, "password : %s\n", pass);
+
     char buffer[MAX_ENTRY_LEN];
     bool ok = false;
 
     while ((fgets(buffer, sizeof(buffer), pwfile)) != NULL) {
+        fprintf(stderr, "buffer : %s\n", buffer);
         if (memcmp(user, buffer, unmlen) == 0 && buffer[unmlen] == ':') {
             /* This is the correct user */
             ++unmlen;
