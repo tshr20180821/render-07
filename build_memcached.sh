@@ -12,7 +12,7 @@ tar xf memcached-1.6.22.tar.gz
 
 pushd memcached-1.6.22
 
-copy -f /usr/src/app/proto_bin.c ./
+cp -f /usr/src/app/proto_bin.c ./
 
 ./configure --help
 
