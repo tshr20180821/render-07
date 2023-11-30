@@ -820,12 +820,17 @@ static void process_bin_complete_sasl_auth(conn *c) {
 
     switch (c->cmd) {
     case PROTOCOL_BINARY_CMD_SASL_AUTH:
+        fprintf(stderr, "CHECK POINT 010\n");
+        fprintf(stderr, "MEMCACHED_SASL_PWDB : %s\n", getenv("MEMCACHED_SASL_PWDB"));
         result = sasl_server_start(c->sasl_conn, mech,
                                    challenge, vlen,
                                    &out, &outlen);
+        fprintf(stderr, "CHECK POINT 020\n");
         c->sasl_started = (result == SASL_OK || result == SASL_CONTINUE);
+        fprintf(stderr, "CHECK POINT 030\n");
         break;
     case PROTOCOL_BINARY_CMD_SASL_STEP:
+        fprintf(stderr, "CHECK POINT 040\n");
         if (!c->sasl_started) {
             if (settings.verbose) {
                 fprintf(stderr, "%d: SASL_STEP called but sasl_server_start "
@@ -838,6 +843,7 @@ static void process_bin_complete_sasl_auth(conn *c) {
                                   &out, &outlen);
         break;
     default:
+        fprintf(stderr, "CHECK POINT 050\n");
         assert(false); /* CMD should be one of the above */
         /* This code is pretty much impossible, but makes the compiler
            happier */
