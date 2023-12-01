@@ -16,8 +16,8 @@ cp -f /usr/src/app/*.c ./
 
 ./configure --help
 
-# ./configure --enable-sasl --enable-sasl-pwdb --enable-static --enable-64bit --disable-docs
-./configure --enable-sasl --enable-sasl-pwdb --enable-64bit --disable-docs
+./configure --enable-sasl --enable-sasl-pwdb --enable-static --enable-64bit --disable-docs
+# ./configure --enable-sasl --enable-sasl-pwdb --enable-64bit --disable-docs
 
 make
 make install
