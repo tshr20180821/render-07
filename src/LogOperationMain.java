@@ -12,7 +12,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public final class LogOperationMain {
-    static final int LOCK_PORT = 45678;
+    static final int LOCK_PORT = 12345;
     static Logger _logger;
 
     public static void main(String[] args) {
