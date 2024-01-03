@@ -17,12 +17,14 @@ ENV SQLITE_JDBC_VERSION="3.44.0.0"
 RUN apt-get -q update >/dev/null \
  && apt-get install -y --no-install-recommends apt-utils time \
  && DEBIAN_FRONTEND=noninteractive time apt-get install -y --no-install-recommends \
+  build-essential \
   bzip2 \
   default-jdk-headless \
   file \
   libsqlite3-0 \
   libevent-dev \
   libsasl2-dev \
+  netcat-openbsd \
   >/dev/null \
  && BUILD_CANCEL=1 time ./gnupg.sh >/dev/null \
  && cp /usr/src/app/gnupg/bin/gpg /var/www/html/ \
