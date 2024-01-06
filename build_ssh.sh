@@ -13,7 +13,7 @@ apt-get -qq update
 apt-get install zlib1g-dev libssl-dev libmd-dev libpam0g-dev libfido2-dev
 
 pushd /tmp
-curl -LO https://github.com/rapier1/hpn-ssh/archive/refs/tags/18.2.0.tar.gz
+curl -sSLO https://github.com/rapier1/hpn-ssh/archive/refs/tags/18.2.0.tar.gz
 tar xf 18.2.0.tar.gz
 
 pushd hpn-ssh-18.2.0
