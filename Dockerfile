@@ -20,6 +20,7 @@ ENV SQLITE_JDBC_VERSION="3.44.0.0"
 
 RUN apt-get -qq update >/dev/null \
  && DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends \
+  automake \
   build-essential \
   bzip2 \
   default-jdk-headless \
