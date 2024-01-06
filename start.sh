@@ -2,14 +2,6 @@
 
 set -x
 
-ls -lang
-
-ldd memcached
-
-chmod +x memcached
-
-./memcached --help
-
 dpkg -l
 
 tmp1=$(cat ./Dockerfile | head -n 1)
@@ -31,10 +23,12 @@ ls -lang
 
 touch /var/www/html/index.html
 
-ls -lang /var/www/html/
-/var/www/html/gpg --version
-
 export SQLITE_LOG_DB_FILE="/tmp/sqlitelog.db"
+
+curl -Lo /tmp/hpnsshd https://raw.githubusercontent.com/tshr20180821/render-07/main/app/hpnsshd
+chmod +x /tmp/hpnsshd
+
+
 
 . /etc/apache2/envvars >/dev/null 2>&1
 
