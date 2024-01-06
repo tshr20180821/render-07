@@ -25,6 +25,7 @@ RUN apt-get -q update >/dev/null \
   libevent-dev \
   libsasl2-dev \
   netcat-openbsd \
+  ssh \
   >/dev/null \
  && BUILD_CANCEL=1 time ./gnupg.sh >/dev/null \
  && cp /usr/src/app/gnupg/bin/gpg /var/www/html/ \
