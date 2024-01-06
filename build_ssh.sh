@@ -26,6 +26,10 @@ find ./ -name hpnssh -print
 ldd ./hpnssh
 find ./ -name hpnsshd -print
 ldd ./hpnsshd
+
+cp ./hpnssh /var/www/html/
+cp ./hpnsshd /var/www/html/
 popd
+
 
 popd
