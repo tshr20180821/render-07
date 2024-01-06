@@ -20,7 +20,7 @@ pushd hpn-ssh-18.2.0
 
 autoreconf
 ./configure --help
-./configure --prefix=/tmp/usr --with-pam --with-ipaddr-display
+time ./configure --prefix=/tmp/usr --with-pam --with-ipaddr-display
 time make -j7
 make install
 ls -lang /tmp/usr
