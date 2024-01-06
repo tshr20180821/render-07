@@ -19,7 +19,7 @@ COPY ./src/*.java ./
 ENV SQLITE_JDBC_VERSION="3.44.0.0"
 
 RUN apt-get -qq update >/dev/null \
- && DEBIAN_FRONTEND=noninteractive time apt-get install -y --no-install-recommends \
+ && DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends \
   build-essential \
   bzip2 \
   default-jdk-headless \
@@ -30,9 +30,9 @@ RUN apt-get -qq update >/dev/null \
   netcat-openbsd \
   ssh \
   >/dev/null \
- && BUILD_CANCEL=1 time ./gnupg.sh >/dev/null \
+ && BUILD_CANCEL=1 ./gnupg.sh >/dev/null \
  && cp /usr/src/app/gnupg/bin/gpg /var/www/html/ \
- && time ./gnupg.sh -C \
+ && ./gnupg.sh -C \
  && ls -lang /usr/src/app/gnupg/bin/ \
  && echo "https://github.com/xerial/sqlite-jdbc/releases/download/$SQLITE_JDBC_VERSION/sqlite-jdbc-$SQLITE_JDBC_VERSION.jar" >download.txt \
  && echo "https://repo1.maven.org/maven2/org/slf4j/slf4j-api/2.0.9/slf4j-api-2.0.9.jar" >>download.txt \
