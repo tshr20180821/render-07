@@ -5,7 +5,7 @@ set -ex
 gcc -### -E - -march=native 2>&1 | sed -r '/cc1/!d;s/(")|(^.* - )//g' >/tmp/cflags_option
 
 cflags_option=$(cat /tmp/cflags_option)
-export CFLAGS="-O2 ${cflags_option} -pipe -fomit-frame-pointer `pkg-config --static --libs libcurl`"
+export CFLAGS="-O2 ${cflags_option} -fomit-frame-pointer"
 export CXXFLAGS="$CFLAGS"
 export LDFLAGS="-fuse-ld=gold"
 
