@@ -19,6 +19,8 @@ autoreconf
 ./configure --help
 ./configure --prefix=/tmp/usr --with-pam --with-ipaddr-display
 time make -j4
+make install
+ls -lang /tmp/usr
 popd
 
 popd
