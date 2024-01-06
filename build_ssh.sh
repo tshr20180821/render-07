@@ -23,7 +23,9 @@ autoreconf
 time ./configure --with-pam --with-ipaddr-display
 time make -j7
 find ./ -name hpnssh -print
+ldd ./hpnssh
 find ./ -name hpnsshd -print
+ldd ./hpnsshd
 popd
 
 popd
