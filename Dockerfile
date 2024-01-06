@@ -19,7 +19,7 @@ COPY ./src/*.java ./
 ENV SQLITE_JDBC_VERSION="3.44.0.0"
 
 RUN apt-get -q update >/dev/null \
- && apt-get install -y --no-install-recommends apt-utils time \
+ && apt-get install -y --no-install-recommends apt-utils \
  && DEBIAN_FRONTEND=noninteractive time apt-get install -y --no-install-recommends \
   build-essential \
   bzip2 \
