@@ -7,7 +7,7 @@ export CXXFLAGS="$CFLAGS"
 export LDFLAGS="-fuse-ld=gold"
 
 apt-get -qq update
-apt-get install zlib1g-dev
+apt-get install zlib1g-dev libcrypto++8
 
 pushd /tmp
 curl -LO https://github.com/rapier1/hpn-ssh/archive/refs/tags/18.2.0.tar.gz
