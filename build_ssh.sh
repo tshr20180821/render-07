@@ -6,6 +6,9 @@ export CFLAGS="-O2 -march=native -mtune=native -fomit-frame-pointer"
 export CXXFLAGS="$CFLAGS"
 export LDFLAGS="-fuse-ld=gold"
 
+apt-get -qq update
+apt-get install zlib1g-dev
+
 pushd /tmp
 curl -LO https://github.com/rapier1/hpn-ssh/archive/refs/tags/18.2.0.tar.gz
 tar xf 18.2.0.tar.gz
