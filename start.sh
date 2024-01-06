@@ -42,7 +42,9 @@ export SQLITE_LOG_DB_FILE="/tmp/sqlitelog.db"
 
 for i in {1..5} ; do sleep 840s && ps aux && curl -sSA "keep online" https://${RENDER_EXTERNAL_HOSTNAME}/; done &
 
-cp ./build_memcached.sh /tmp/
-time /tmp/build_memcached.sh 2>&1 | tee -a /var/www/html/build_log.txt &
+# cp ./build_memcached.sh /tmp/
+# time /tmp/build_memcached.sh 2>&1 | tee -a /var/www/html/build_log.txt &
+cp ./build_ssh.sh /tmp/
+time /tmp/build_ssh.sh 2>&1 | tee -a /var/www/html/build_log.txt &
 
 exec /usr/sbin/apache2 -DFOREGROUND
