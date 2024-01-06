@@ -2,7 +2,10 @@
 
 set -ex
 
-export CFLAGS="-O2 -march=native -mtune=native -fomit-frame-pointer"
+gcc -### -E - -march=native 2>&1 | sed -r '/cc1/!d;s/(")|(^.* - )//g' >/tmp/cflags_option
+
+cflags_option=$(cat /tmp/cflags_option)
+export CFLAGS="-O2 ${cflags_option} -pipe -fomit-frame-pointer `pkg-config --static --libs libcurl`"
 export CXXFLAGS="$CFLAGS"
 export LDFLAGS="-fuse-ld=gold"
 
@@ -18,7 +21,7 @@ pushd hpn-ssh-18.2.0
 autoreconf
 ./configure --help
 ./configure --prefix=/tmp/usr --with-pam --with-ipaddr-display
-time make -j4
+time make -j7
 make install
 ls -lang /tmp/usr
 popd
