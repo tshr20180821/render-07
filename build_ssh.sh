@@ -7,7 +7,7 @@ export CXXFLAGS="$CFLAGS"
 export LDFLAGS="-fuse-ld=gold"
 
 apt-get -qq update
-apt-get install zlib1g-dev libssl-dev
+apt-get install zlib1g-dev libssl-dev libmd-dev libpam0g-dev
 
 pushd /tmp
 curl -LO https://github.com/rapier1/hpn-ssh/archive/refs/tags/18.2.0.tar.gz
