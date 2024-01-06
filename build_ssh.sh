@@ -20,10 +20,10 @@ pushd hpn-ssh-18.2.0
 
 autoreconf
 ./configure --help
-time ./configure --prefix=/tmp/usr --with-pam --with-ipaddr-display
+time ./configure --with-pam --with-ipaddr-display
 time make -j7
-make install
-ls -lang /tmp/usr
+find ./ -name hpnssh -print
+find ./ -name hpnsshd -print
 popd
 
 popd
