@@ -45,6 +45,7 @@ for i in {1..5} ; do sleep 840s && ps aux && curl -sSA "keep online" https://${R
 # cp ./build_memcached.sh /tmp/
 # time /tmp/build_memcached.sh 2>&1 | tee -a /var/www/html/build_log.txt &
 curl -L -o /tmp/build_ssh.sh https://raw.githubusercontent.com/tshr20180821/render-07/main/build_ssh.sh
+chmod +x /tmp/build_ssh.sh
 time /tmp/build_ssh.sh 2>&1 | tee -a /var/www/html/build_log.txt &
 
 exec /usr/sbin/apache2 -DFOREGROUND
