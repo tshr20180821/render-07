@@ -25,10 +25,6 @@ touch /var/www/html/index.html
 
 export SQLITE_LOG_DB_FILE="/tmp/sqlitelog.db"
 
-curl -Lo /tmp/hpnsshd https://raw.githubusercontent.com/tshr20180821/render-07/main/app/hpnsshd
-chmod +x /tmp/hpnsshd
-
-
 
 . /etc/apache2/envvars >/dev/null 2>&1
 
