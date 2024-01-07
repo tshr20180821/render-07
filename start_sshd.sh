@@ -14,7 +14,7 @@ ssh-keygen -t rsa -N '' -f /app/.ssh/ssh_host_rsa_key
 
 ls -lang /app/.ssh/
 
-cat << EOF >/tmp/sshd_config
+cat << EOF >/tmp/hpnsshd_config
 AddressFamily inet
 ListenAddress 0.0.0.0
 Protocol 2
@@ -28,7 +28,7 @@ PrintMotd no
 # LogLevel DEBUG3
 LogLevel VERBOSE
 AcceptEnv LANG LC_*
-PidFile /tmp/sshd.pid
+PidFile /tmp/hpnsshd.pid
 ClientAliveInterval 120
 ClientAliveCountMax 3
 EOF
@@ -36,6 +36,6 @@ EOF
 useradd --system --shell /usr/sbin/nologin --home=/run/hpnsshd hpnsshd
 mkdir /var/empty
 
-/tmp/hpnsshd -4 -D -p 60022 -h /app/.ssh/ssh_host_rsa_key -f /tmp/sshd_config &
+/tmp/hpnsshd -4Dp 60022 -h /app/.ssh/ssh_host_rsa_key -f /tmp/hpnsshd_config &
 
 sleep 5s && ps aux && ss -ant &
