@@ -34,6 +34,7 @@ ClientAliveCountMax 3
 EOF
 
 useradd --system --shell /usr/sbin/nologin --home=/run/hpnsshd hpnsshd
+mkdir /var/empty
 
 /tmp/hpnsshd -4 -D -p 60022 -h /app/.ssh/ssh_host_rsa_key -f /tmp/sshd_config &
 
