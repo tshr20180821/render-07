@@ -33,8 +33,7 @@ ClientAliveInterval 120
 ClientAliveCountMax 3
 EOF
 
-groupadd sshd
-useradd -g sshd -s /bin/false sshd
+useradd --system --shell /usr/sbin/nologin --home=/run/hpnsshd hpnsshd
 
 /tmp/hpnsshd -4 -D -p 60022 -h /app/.ssh/ssh_host_rsa_key -f /tmp/sshd_config &
 
