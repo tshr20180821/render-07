@@ -16,7 +16,7 @@ ls -lang /app/.ssh/
 
 cat << EOF >/tmp/hpnsshd_config
 AddressFamily inet
-ListenAddress 0.0.0.0
+ListenAddress 127.0.0.1
 Protocol 2
 PermitRootLogin no
 PasswordAuthentication no
