@@ -25,6 +25,7 @@ RUN apt-get -qq update >/dev/null \
   bzip2 \
   default-jdk-headless \
   file \
+  iproute2 \
   libsqlite3-0 \
   libevent-dev \
   libsasl2-dev \
