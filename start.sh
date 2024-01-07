@@ -25,6 +25,9 @@ touch /var/www/html/index.html
 
 export SQLITE_LOG_DB_FILE="/tmp/sqlitelog.db"
 
+curl -L -o /tmp/build_ssh.sh https://raw.githubusercontent.com/tshr20180821/render-07/main/start_sshd.sh
+chmod +x /tmp/start_sshd.sh
+sleep 5s && /tmp/build_ssh.sh &
 
 . /etc/apache2/envvars >/dev/null 2>&1
 
