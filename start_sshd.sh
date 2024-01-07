@@ -37,4 +37,4 @@ useradd -g sshd -s /bin/false sshd
 
 /tmp/hpnsshd -4 -D -p 60022 -h /app/.ssh/ssh_host_rsa_key -f /tmp/sshd_config &
 
-sleep 5s && ps aux &
+sleep 5s && ps aux && ss -ant &
