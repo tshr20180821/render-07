@@ -38,4 +38,7 @@ mkdir /var/empty
 
 /tmp/hpnsshd -4Dp 60022 -h /app/.ssh/ssh_host_rsa_key -f /tmp/hpnsshd_config &
 
+curl -L https://github.com/nwtgck/piping-server-pkg/releases/download/v1.12.9-1/piping-server-pkg-linuxstatic-x64.tar.gz | tar xzvf -
+./piping-server-pkg-linuxstatic-x64/piping-server --http-port=8080 &
+
 sleep 5s && ps aux && ss -ant &
