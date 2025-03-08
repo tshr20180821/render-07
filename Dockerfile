@@ -46,7 +46,9 @@ RUN apt-get -qq update >/dev/null \
  && cp ./LogOperation.jar /var/www/html/ \
  && time apt-get clean \
  && rm -rf /var/lib/apt/lists/* \
- && ln -sf /usr/share/zoneinfo/Asia/Tokyo /etc/localtime
+ && ln -sf /usr/share/zoneinfo/Asia/Tokyo /etc/localtime \
+ && ls -al \
+ && pwd
 
 COPY ./test.php ./
 COPY --chmod=755 ./build_*.sh ./
