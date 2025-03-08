@@ -37,8 +37,8 @@ RUN apt-get -qq update >/dev/null \
  && ./gnupg.sh -C \
  && ls -lang /usr/src/app/gnupg/bin/ \
  && echo "https://github.com/xerial/sqlite-jdbc/releases/download/$SQLITE_JDBC_VERSION/sqlite-jdbc-$SQLITE_JDBC_VERSION.jar" >download.txt \
- && echo "https://repo1.maven.org/maven2/org/slf4j/slf4j-api/2.0.9/slf4j-api-2.0.9.jar" >>download.txt \
- && echo "https://repo1.maven.org/maven2/org/slf4j/slf4j-nop/2.0.9/slf4j-nop-2.0.9.jar" >>download.txt \
+ && echo "https://repo1.maven.org/maven2/org/slf4j/slf4j-api/2.0.17/slf4j-api-2.0.17.jar" >>download.txt \
+ && echo "https://repo1.maven.org/maven2/org/slf4j/slf4j-nop/2.0.17/slf4j-nop-2.0.17.jar" >>download.txt \
  && time xargs -P3 -n1 curl -sS -LO <download.txt \
  && time javac *.java \
  && mv ./AvailableProcessors.class /var/www/html/ \
